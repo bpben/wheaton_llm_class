@@ -1,0 +1,21 @@
+{
+    "name": "my-workspace",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "customizations": {
+      "vscode": {
+        "settings": {},
+        "extensions": ["ms-python.python", 
+        "charliermarsh.ruff", 
+      "donjayamanne.vscode-default-python-kernel"]
+      }
+    },
+    "features": {
+    },
+    "forwardPorts": [11434],
+    "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
+    "postCreateCommand": "sudo chown vscode .pixi && pixi install && curl -fsSL https://ollama.com/install.sh | sh",
+    "postStartCommand": "sh serve_and_pull.sh && ollama serve"
+}

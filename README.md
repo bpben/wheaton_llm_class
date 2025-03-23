@@ -1,4 +1,5 @@
 #  LLM Section of Comp255 at Wheaton College 
+**CURRENTLY A WORK IN PROGRESS**
 
 ## Setup steps
 1) Install pixi - Follow instructons [here](https://pixi.sh/latest/#installation)

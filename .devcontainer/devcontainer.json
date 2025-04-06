@@ -14,8 +14,9 @@
     },
     "features": {
     },
-    "forwardPorts": [11434],
+    //"forwardPorts": [11434],
     "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
     "postCreateCommand": "sudo chown vscode .pixi && pixi install && curl -fsSL https://ollama.com/install.sh | sh",
-    "postStartCommand": "sh serve_and_pull.sh && ollama serve"
+    //"postStartCommand": "sh serve_and_pull.sh && ollama serve"
+    "postStartCommand": "ollama serve"
 }

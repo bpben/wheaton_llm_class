@@ -15,6 +15,6 @@
     "features": {
     },
     "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
-    "postCreateCommand": "sudo chown vscode .pixi && pixi install"// && curl -fsSL https://ollama.com/install.sh | sh",
-    //"postStartCommand": "ollama serve"
+    "postCreateCommand": "sudo chown vscode .pixi && pixi install && curl -fsSL https://ollama.com/install.sh | sh",
+    "postStartCommand": "ollama serve"
 }

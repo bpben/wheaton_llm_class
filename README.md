@@ -10,6 +10,7 @@ NOTE: This will take some time on the first run, and it's not clear when the env
 1) Install pixi - Follow instructons [here](https://pixi.sh/latest/#installation)
 2) Install [Ollama](https://ollama.com/)
 3) If you are using VSCode, you should be able to open the notebooks and select the pixi kernel.  If not, you can use Jupyter Lab installed as part of the pixi environment.  In a terminal write `pixi shell`.  This will activate the pixi environment.  Then write `jupyter lab` and Jupyter Lab will open, allowing you to navigate to the notebooks and run the exercises.
+4) In a terminal, type `ollama serve`.  If you are on MacOS, you should see a little Llama icon in the top of your screen.
 
 ## Installing models
 The main model used is [qwen2.5:1.5b](https://ollama.com/library/qwen2.5:1.5b).  To pull this model run `ollama pull qwen2.5:1.5b`.

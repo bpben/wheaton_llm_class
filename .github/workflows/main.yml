@@ -17,7 +17,4 @@ jobs:
     steps:
     - name: setup-pixi
       uses: prefix-dev/setup-pixi@v0.8.5
-      with:
-            pixi-version: v0.44.0
-            auth-host: prefix.dev
     - run: pixi run test

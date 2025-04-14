@@ -28,3 +28,6 @@ ipywidgets = "==7.7.1"
 sentence-transformers = ">=3.4.1,<4"
 accelerate = ">=1.5.2,<2"
 lancedb = "==0.21.1"
+
+[tool.setuptools]
+py-modules = []

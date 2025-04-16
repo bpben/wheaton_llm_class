@@ -1,5 +1,8 @@
 #  LLM Section of Comp255 at Wheaton College 
-**CURRENTLY A WORK IN PROGRESS**
+
+## Slides
+[Class 1 slides](https://docs.google.com/presentation/d/1DyKqXHl7ICcoOJ94y44y__SGCu44nIDOAX24kTXMFCg/edit?usp=sharing)
+[Class 2 slides](https://docs.google.com/presentation/d/1DyKqXHl7ICcoOJ94y44y__SGCu44nIDOAX24kTXMFCg)
 
 ## Setup with Codespaces
 1) Select "use as template" in the top right of [the main page of the repo](https://github.com/bpben/wheaton_llm_class)

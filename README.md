@@ -1,9 +1,9 @@
 #  LLM Section of Comp255 at Wheaton College 
 
 ## Slides
-[Class 1 slides](https://docs.google.com/presentation/d/1DyKqXHl7ICcoOJ94y44y__SGCu44nIDOAX24kTXMFCg/edit?usp=sharingg)
+[Class 1 slides](https://docs.google.com/presentation/d/1DyKqXHl7ICcoOJ94y44y__SGCu44nIDOAX24kTXMFCg)
 
-[Class 2 slides](https://docs.google.com/presentation/d/1DyKqXHl7ICcoOJ94y44y__SGCu44nIDOAX24kTXMFCg)
+[Class 2 slides](https://docs.google.com/presentation/d/1ljlyjdxe9fpuWVPOEfGuXFdg3mxXn35aPWUC7-7oFsw)
 
 
 

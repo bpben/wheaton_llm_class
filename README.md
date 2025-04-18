@@ -5,6 +5,8 @@
 
 [Class 2 slides](https://docs.google.com/presentation/d/1ljlyjdxe9fpuWVPOEfGuXFdg3mxXn35aPWUC7-7oFsw)
 
+[Class 3 slides](https://docs.google.com/presentation/d/1hSrKRqA1NzZMUa75t-E3T80gvuOGIfXeY-C7XOJ-FZU)
+
 
 
 ## Setup with Codespaces

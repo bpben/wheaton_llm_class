@@ -1,0 +1,13 @@
+{
+  "name": "odsc-ai-reg-26",
+  "private": true,
+  "scripts": {
+    "dev": "slidev 01_workflows.md",
+    "build": "slidev build 01_workflows.md",
+    "export": "slidev export 01_workflows.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "^51.8.0",
+    "@slidev/theme-default": "latest"
+  }
+}

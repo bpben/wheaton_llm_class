@@ -176,3 +176,15 @@ layout: center
 
 # Today: give the model <mark>agency</mark>
 
+---
+layout: default
+---
+
+# "Agents" in Reinforcement Learning
+
+<div class="flex items-center justify-center pt-2">
+
+<img src="/images/slides/rl-agent-environment.png" alt="Reinforcement learning agent–environment loop: state, action, reward" class="max-h-[55vh] w-auto max-w-full object-contain" />
+
+</div>
+

@@ -18,6 +18,33 @@ Create a Codespace from this repository. The dev container installs the Python
 environment, Ollama, and the required models automatically. Initial setup may
 take several minutes while the models download.
 
+### Codespaces troubleshooting
+
+**Notebook won't attach to a kernel / "Select Kernel" is empty**
+
+1. Click on the current kernel (top right of notebook)
+2. Select "Create Python Environment"
+3. Select "Enter interpreter path"
+4. Enter the full path to the Python interpreter: `/workspaces/wheaton_llm_class/.pixi/envs/default/bin/python`
+
+**`ConnectionError: Failed to connect to Ollama`**
+
+Ollama sometimes isn't running after the Codespace wakes up. In a terminal:
+
+```bash
+nohup ollama serve > /tmp/ollama.log 2>&1 &
+ollama list
+```
+
+If the models are missing, pull them:
+
+```bash
+ollama pull llama3.2:1b-text-q5_K_S
+ollama pull llama3.2:1b
+```
+
+Then rerun the notebook cell.
+
 ## Local setup
 
 1. Install [Pixi](https://pixi.sh/latest/).

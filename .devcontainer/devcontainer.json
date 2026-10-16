@@ -11,7 +11,10 @@
         "ms-toolsai.jupyter",
         "charliermarsh.ruff",
         "donjayamanne.vscode-default-python-kernel"
-      ]
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.pixi/envs/default/bin/python"
+      }
     }
   },
   "mounts": [

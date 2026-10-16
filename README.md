@@ -1,11 +1,16 @@
 # LLM Section of COMP 255 at Wheaton College
 
-> **Work in progress:** only Class 01 is available for now.
+> **Work in progress:** only Class 01 and Class 02 notebook are available for now.
 
 ## Class 01: LLM Workflows
 
 - Instructor notebook: [`notebooks_instructor/01_workflows.ipynb`](notebooks_instructor/01_workflows.ipynb)
 - Slides: [`slides_26/01_workflows.md`](slides_26/01_workflows.md)
+
+## Class 02: ReAct Workflows
+
+- Instructor notebook: [`notebooks_instructor/02_workflows.ipynb`](notebooks_instructor/02_workflows.ipynb)
+- Slides: TBA
 
 ## GitHub Codespaces
 
@@ -23,21 +28,29 @@ take several minutes while the models download.
    pixi install
    ```
 
-4. Download the models:
+   (optional) Class 02's OpenAI Agent SDK section needs the `extras` environment:
+
+   ```bash
+   pixi install -e extras
+   ```
+
+4. For OpenRouter (used in Class 02), copy [`.env.example`](.env.example) to
+   `.env` and set `OPENROUTER_API_KEY`. Do not commit `.env`.
+
+5. Download the models:
 
    ```bash
    ollama pull llama3.2:1b-text-q5_K_S
    ollama pull llama3.2:1b
    ```
 
-5. Open the notebook with the Pixi kernel, or launch JupyterLab:
+6. Open the notebook with the Pixi kernel, or launch JupyterLab:
 
    ```bash
    pixi run jupyter lab
    ```
 
-The web-search section of the notebook also requires internet access to the
-Firecrawl search API.
+The web-search section of Class 01 also requires internet access.  It uses Firecrawl's search API, which requires no registration but is rate limited.
 
 ## Run the slides locally
 

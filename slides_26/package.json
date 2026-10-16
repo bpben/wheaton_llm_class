@@ -1,10 +1,13 @@
 {
-  "name": "odsc-ai-reg-26",
+  "name": "wheaton-ai-26",
   "private": true,
   "scripts": {
-    "dev": "slidev 01_workflows.md",
-    "build": "slidev build 01_workflows.md",
-    "export": "slidev export 01_workflows.md"
+    "class-01": "slidev 01_workflows.md",
+    "class-02": "slidev 02_agents.md",
+    "build-01": "slidev build 01_workflows.md",
+    "export-01": "slidev export 01_workflows.md",
+    "build-02": "slidev build 02_agents.md",
+    "export-02": "slidev export 02_agents.md"
   },
   "dependencies": {
     "@slidev/cli": "^51.8.0",

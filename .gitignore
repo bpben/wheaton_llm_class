@@ -1,4 +1,7 @@
 
+# secrets
+.env
+
 # pixi environments
 .pixi
 *.egg-info

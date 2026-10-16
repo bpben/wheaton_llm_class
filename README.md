@@ -29,10 +29,10 @@ take several minutes while the models download.
 
 **`ConnectionError: Failed to connect to Ollama`**
 
-Ollama sometimes isn't running after the Codespace wakes up. In a terminal:
+The Codespace should start Ollama on attach. If it still isn't up:
 
 ```bash
-nohup ollama serve > /tmp/ollama.log 2>&1 &
+bash .devcontainer/start-ollama.sh
 ollama list
 ```
 

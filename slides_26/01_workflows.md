@@ -11,14 +11,20 @@ info: |
 <div class="min-w-0">
 
 # LLM Workflows
-### Prepared for \<class name\>
+### Prepared for Wheaton College: COMP 255
 #### Ben Batorsky
 
 </div>
 
-<div class="flex h-full min-h-0 min-w-0 items-center justify-center">
+<div class="flex h-full min-h-0 min-w-0 items-center justify-center gap-4">
 
-<img src="/images/slides/strange.gif" alt="" class="max-h-[85vh] w-full object-contain" />
+<div class="i-carbon-user text-7xl opacity-80 shrink-0" />
+<div class="i-carbon-arrow-right text-4xl opacity-60 shrink-0" />
+<div class="i-carbon-machine-learning-model text-7xl opacity-80 shrink-0" />
+<div class="i-carbon-arrow-right text-4xl opacity-60 shrink-0" />
+<div class="i-carbon-search text-7xl opacity-80 shrink-0" />
+<div class="i-carbon-arrow-right text-4xl opacity-60 shrink-0" />
+<div class="i-carbon-chat text-7xl opacity-80 shrink-0" />
 
 </div>
 

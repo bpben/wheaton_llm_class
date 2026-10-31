@@ -11,8 +11,8 @@ info: |
 <div class="min-w-0">
 
 # LLM Agents
-### Prepared for Wheaton College: COMP 255
-#### Ben Batorsky
+#### Prepared for Wheaton College: COMP 255
+##### Ben Batorsky
 
 </div>
 
@@ -55,13 +55,21 @@ layout: center
 layout: default
 ---
 
-# Building blocks from last time
+# LLMs as we know them
 
 <div class="flex h-[75%] w-full items-center justify-center gap-3 px-2 text-sm">
 
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-book text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Corpus</div>
+  <div class="text-xs leading-snug text-center opacity-85">trillions of tokens</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
   <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Pre-trained</div>
+  <div class="text-base font-semibold text-center leading-tight">Pre-trained LLM</div>
   <div class="text-xs leading-snug text-center opacity-85">next-token prediction</div>
 </div>
 
@@ -69,11 +77,42 @@ layout: default
 
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
   <div class="i-carbon-user-favorite text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Instruction-tuned</div>
-  <div class="text-xs leading-snug text-center opacity-85">follow directions (RLHF)</div>
+  <div class="text-base font-semibold text-center leading-tight">Instruction-tuning</div>
+  <div class="text-xs leading-snug text-center opacity-85">align with human preference</div>
 </div>
 
 <div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Post-trained LLM</div>
+  <div class="text-xs leading-snug text-center opacity-85">useful answers</div>
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Workflow building blocks
+
+<div class="flex h-[75%] w-full items-center justify-center gap-3 px-2 text-sm">
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">LLM</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">+</div>
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-tool-kit text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Tools</div>
+  <div class="text-xs leading-snug text-center opacity-85"> external functions</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">+</div>
 
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
   <div class="i-carbon-data-base text-5xl opacity-80" />
@@ -81,12 +120,19 @@ layout: default
   <div class="text-xs leading-snug text-center opacity-85">append + retrieve context</div>
 </div>
 
-<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+<div class="text-2xl font-semibold opacity-70 shrink-0">+</div>
 
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
-  <div class="i-carbon-tool-kit text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Tools</div>
-  <div class="text-xs leading-snug text-center opacity-85">call external functions</div>
+  <div class="i-carbon-list-numbered text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Steps</div>
+  <div class="text-xs leading-snug text-center opacity-85">fixed sequence</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">=</div>
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-flow text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Workflow</div>
 </div>
 
 </div>
@@ -187,18 +233,18 @@ layoutClass: gap-4
 
 </div>
 
----
-layout: center
----
+<div class="absolute bottom-2 right-4 text-[10px] leading-snug opacity-85 text-right max-w-[55%]">
 
-# Today: give the model <mark>agency</mark>
+Adapted from [What is an AI agent?](https://www.langchain.com/blog/what-is-an-agent)
+
+</div>
 
 ---
 layout: two-cols-header
 layoutClass: gap-4
 ---
 
-# Model versus Agent
+# Sloppy language: A model is not an agent
 
 ::left::
 
@@ -233,7 +279,7 @@ layout: two-cols-header
 layoutClass: gap-4
 ---
 
-# Agent vs Workflow
+# A workflow is not an agent
 
 ::left::
 
@@ -298,14 +344,104 @@ layout: default
 
 # Agent components
 
-<div class="flex flex-col items-center justify-center gap-2 pt-2">
+<div class="flex h-[75%] w-full items-stretch justify-center gap-4 px-6">
 
-<img src="/images/slides/nvidia-agent-components.png" alt="Agent core connected to a memory module, planning module, tools, and a user request" class="max-h-[50vh] w-auto max-w-full object-contain" />
+<div class="flex w-56 flex-col rounded border px-4 pt-3 pb-3">
+  <div class="text-center text-xs font-semibold uppercase tracking-wide opacity-70">Agent</div>
+  <div class="flex flex-1 flex-col justify-center gap-2">
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold">LLM</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold">Tools</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold">Context</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold">Planning</div>
+  </div>
+</div>
 
-<div class="text-[10px] leading-snug opacity-85 text-center">
+<div class="flex w-44 flex-col items-center justify-between py-6">
 
-Tanay Varshney, [Introduction to LLM Agents](https://developer.nvidia.com/blog/introduction-to-llm-agents/), *NVIDIA Technical Blog*, 30 Nov. 2023.
+<div class="flex flex-col items-center gap-1">
+  <div class="i-carbon-arrow-left text-4xl opacity-60" />
+  <div class="text-sm font-semibold">Percepts</div>
+  <div class="text-xs leading-snug text-center opacity-85">messages, tool results, indexes</div>
+</div>
 
+<div class="flex flex-col items-center gap-1">
+  <div class="i-carbon-arrow-right text-4xl opacity-60" />
+  <div class="text-sm font-semibold">Actions</div>
+  <div class="text-xs leading-snug text-center opacity-85">tool calls, reply</div>
+</div>
+
+</div>
+
+<div class="flex w-56 flex-col rounded border px-4 pt-3 pb-3">
+  <div class="text-center text-xs font-semibold uppercase tracking-wide opacity-70">Environment</div>
+  <div class="flex flex-1 flex-col items-center justify-center gap-4">
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-user text-4xl opacity-80" />
+      <div class="text-sm font-semibold">User</div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-notebook text-4xl opacity-80" />
+      <div class="text-sm font-semibold">Records</div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-earth text-4xl opacity-80" />
+      <div class="text-sm font-semibold">Web</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Agent components: Context
+
+<div class="flex h-[75%] w-full items-stretch justify-center gap-4 px-6">
+
+<div class="flex w-56 flex-col rounded border px-4 pt-3 pb-3">
+  <div class="text-center text-xs font-semibold uppercase tracking-wide opacity-70">Agent</div>
+  <div class="flex flex-1 flex-col justify-center gap-2">
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold opacity-35">LLM</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold opacity-35">Tools</div>
+    <div class="rounded border-2 border-current px-2 py-1.5 text-center text-sm font-semibold ring-2 ring-current/30">Context</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold opacity-35">Planning</div>
+  </div>
+</div>
+
+<div class="flex w-44 flex-col items-center justify-between py-6 opacity-35">
+
+<div class="flex flex-col items-center gap-1">
+  <div class="i-carbon-arrow-left text-4xl opacity-60" />
+  <div class="text-sm font-semibold">Percepts</div>
+  <div class="text-xs leading-snug text-center opacity-85">messages, tool results, indexes</div>
+</div>
+
+<div class="flex flex-col items-center gap-1">
+  <div class="i-carbon-arrow-right text-4xl opacity-60" />
+  <div class="text-sm font-semibold">Actions</div>
+  <div class="text-xs leading-snug text-center opacity-85">tool calls, reply</div>
+</div>
+
+</div>
+
+<div class="flex w-56 flex-col rounded border px-4 pt-3 pb-3 opacity-35">
+  <div class="text-center text-xs font-semibold uppercase tracking-wide opacity-70">Environment</div>
+  <div class="flex flex-1 flex-col items-center justify-center gap-4">
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-user text-4xl opacity-80" />
+      <div class="text-sm font-semibold">User</div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-notebook text-4xl opacity-80" />
+      <div class="text-sm font-semibold">Records</div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-earth text-4xl opacity-80" />
+      <div class="text-sm font-semibold">Web</div>
+    </div>
+  </div>
 </div>
 
 </div>
@@ -345,6 +481,60 @@ messages = [
      "content": "Today's date is 2026-10-21."},
 ]
 ```
+
+---
+layout: default
+---
+
+# Agent components: Planning
+
+<div class="flex h-[75%] w-full items-stretch justify-center gap-4 px-6">
+
+<div class="flex w-56 flex-col rounded border px-4 pt-3 pb-3">
+  <div class="text-center text-xs font-semibold uppercase tracking-wide opacity-70">Agent</div>
+  <div class="flex flex-1 flex-col justify-center gap-2">
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold opacity-35">LLM</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold opacity-35">Tools</div>
+    <div class="rounded border px-2 py-1.5 text-center text-sm font-semibold opacity-35">Context</div>
+    <div class="rounded border-2 border-current px-2 py-1.5 text-center text-sm font-semibold ring-2 ring-current/30">Planning</div>
+  </div>
+</div>
+
+<div class="flex w-44 flex-col items-center justify-between py-6 opacity-35">
+
+<div class="flex flex-col items-center gap-1">
+  <div class="i-carbon-arrow-left text-4xl opacity-60" />
+  <div class="text-sm font-semibold">Percepts</div>
+  <div class="text-xs leading-snug text-center opacity-85">messages, tool results, indexes</div>
+</div>
+
+<div class="flex flex-col items-center gap-1">
+  <div class="i-carbon-arrow-right text-4xl opacity-60" />
+  <div class="text-sm font-semibold">Actions</div>
+  <div class="text-xs leading-snug text-center opacity-85">tool calls, reply</div>
+</div>
+
+</div>
+
+<div class="flex w-56 flex-col rounded border px-4 pt-3 pb-3 opacity-35">
+  <div class="text-center text-xs font-semibold uppercase tracking-wide opacity-70">Environment</div>
+  <div class="flex flex-1 flex-col items-center justify-center gap-4">
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-user text-4xl opacity-80" />
+      <div class="text-sm font-semibold">User</div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-notebook text-4xl opacity-80" />
+      <div class="text-sm font-semibold">Records</div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="i-carbon-earth text-4xl opacity-80" />
+      <div class="text-sm font-semibold">Web</div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 ---
 layout: default
@@ -576,3 +766,140 @@ Sculley et al. (2015). [Hidden Technical Debt in Machine Learning Systems](https
 
 </div>
 
+---
+layout: default
+class: h-full !p-0
+---
+
+<div class="absolute inset-0 flex flex-col box-border px-4 pt-3 pb-2 gap-1">
+
+# Everything is not an agent
+
+<img src="/images/slides/salesforce-proactive-agents.png" alt="Applications and data emit events; agents observe and outreach to customers or notify employees" class="min-h-0 flex-1 w-full object-contain" />
+
+<div class="shrink-0 text-[10px] leading-snug opacity-85 text-center">
+
+[Agentic Patterns and Implementation with Agentforce](https://architect.salesforce.com/docs/architect/fundamentals/guide/agentic-patterns.html#11-conversational-agents), Salesforce Architects.
+
+</div>
+
+</div>
+
+---
+layout: two-cols-header
+class: !overflow-hidden
+layoutClass: gap-4
+---
+
+# Everything shouldn't be an agent
+
+::left::
+
+## Accuracy issues
+
+<div class="flex min-h-0 flex-1 flex-col items-center justify-center">
+
+<img src="/images/slides/lecun-token-sequences.png" alt="Tree of all possible token sequences with a narrow slice of correct answers" class="max-h-[36vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::right::
+
+## Latency issues
+
+<div class="flex h-full items-center text-[0.85rem] leading-snug">
+
+```text
+agent    run 1: 10.86s  ->  The records contain diagnoses of common cold and migraine.
+agent    run 2: 14.31s  ->  Diagnoses on file include a common cold and a migraine.
+agent    run 3: 17.85s  ->  Records on file include diagnoses of common cold and migraine, plus one entry noting sore throat and fever without a specified diagnosis.
+
+workflow run 1: 5.59s  ->  The on-file diagnoses are common cold and migraine.
+workflow run 2: 10.65s  ->  Diagnoses on file include common cold and migraine.
+workflow run 3: 8.09s  ->  The diagnoses on file are common cold and migraine.
+
+agent mean:    14.34s
+workflow mean: 8.11s
+```
+
+</div>
+
+<div class="absolute bottom-2 right-4 text-[10px] leading-snug opacity-85 text-right max-w-[55%]">
+
+Yann LeCun (2023). [Santa Fe Institute lecture](https://drive.google.com/file/d/1RFxtgLv0q_tKmfzxWG0IOAL8Bre4Id6B/view).
+
+</div>
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# Everything *really* shouldn't be an agent
+
+::left::
+
+|  | **Failure modes** |
+| --- | --- |
+| **Code** | validation, logic bugs, API errors |
+| **Workflow** | + bad step outputs, brittle handoffs |
+| **Agent** | + wrong tools, scope violations, runaway loops |
+| **Chat bot** | + ...many |
+
+::right::
+
+<div class="flex h-full flex-col items-center justify-center gap-2">
+
+<img src="/images/slides/mcdonalds-linked-list.png" alt="McDonald's support bot answering a linked-list coding question, then offering McNuggets" class="max-h-[48vh] w-auto max-w-full object-contain" />
+
+<div class="shrink-0 text-[10px] leading-snug opacity-85 text-center">
+
+[Matt Paige](https://x.com/MattPaige32/status/2046247602266546462/photo/1), X, 20 Apr. 2026.
+
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Evaluation is *key*
+
+| | **Example failure mode** | **Metric** | **Benchmark** |
+| --- | --- | --- | --- |
+| **Code** | Validation | Unit test pass rate | pytest suite |
+| **Workflow** | Hallucinated output | Faithfulness | WikiEval |
+| **Agent** | Wrong tools | Planning score | T-Eval |
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# Thank you!
+
+::left::
+
+## Key papers
+
+- [Original Transformer paper](https://arxiv.org/abs/1706.03762) (Vaswani et al., 2017)
+- [InstructGPT - precursor to GPT-3](https://arxiv.org/abs/2203.02155) (Ouyang et al., 2022)
+- [Chain of thought prompting](https://arxiv.org/pdf/2205.11916) (Kojima et al., 2022)
+- [ReAct Framework](https://arxiv.org/abs/2210.03629) (Yao et al., 2023)
+- [MemGPT - memory-augmented LLMs](https://arxiv.org/abs/2310.08560) (Packer et al., 2023)
+- [SWE-agent - full engineering agent](https://arxiv.org/abs/2405.15793) (Yang et al., 2024)
+- [DeepSeek-R1 - reasoning (where a lot of this lives now)](https://arxiv.org/abs/2501.12948) (DeepSeek-AI, 2025)
+
+::right::
+
+## Literature / Blogs
+
+- [DAIR ML Papers of the Week](https://github.com/dair-ai/ML-Papers-of-the-Week)
+- [Sebastian Raschka](https://magazine.sebastianraschka.com/)
+- [Lilian Weng](https://lilianweng.github.io/)
+
+## Benchmarks
+
+- [Taubench](https://taubench.com/) — AI agent evaluation
+- [RAGAS](https://docs.ragas.io/en/stable/) — RAG evaluation suite

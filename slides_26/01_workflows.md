@@ -237,7 +237,7 @@ layout: default
 layout: default
 ---
 
-# Neural Language Models
+# Training Neural Language Models
 
 <div class="flex h-[75%] w-full items-center justify-center gap-4 px-2">
 
@@ -245,10 +245,7 @@ layout: default
   <div class="i-carbon-book text-5xl opacity-80" />
   <div class="text-lg font-semibold text-center leading-tight">Corpus</div>
   <div class="text-sm leading-relaxed text-left space-y-0.5 px-2 py-1.5 rounded" style="background:#fff;color:#000">
-    <div class="font-semibold">I want to eat ___</div>
-    <div>Eat Chinese food</div>
-    <div>Spend money on lunch</div>
-    <div>…</div>
+    <div class="font-semibold">I want to eat ____</div>
   </div>
 </div>
 
@@ -262,7 +259,7 @@ layout: default
 <div class="i-carbon-arrow-right text-4xl opacity-60 shrink-0" />
 
 <div class="flex flex-col items-center gap-2 shrink-0">
-  <div class="text-2xl font-semibold leading-tight">Predict <em>w</em></div>
+  <div class="text-2xl font-semibold leading-tight">Predict next word</div>
 </div>
 
 <div class="flex flex-col justify-center gap-6 shrink-0">
@@ -296,7 +293,11 @@ layout: center
 class: text-4xl
 ---
 
-# Large Language Model (LLM)
+# Large <mark>Language Model</mark> (LLM)
+
+<div class="absolute left-0 right-0 top-[58%] px-8 text-2xl font-semibold text-center leading-snug">
+  A model that predicts the next word given context.
+</div>
 
 ---
 layout: center
@@ -446,7 +447,7 @@ layout: center
 layout: default
 ---
 
-# It's cute, but... (GPT-3, 2020)
+# It's cute, but... (GPT-2, 2020)
 
 <div class="flex items-center justify-center h-[70%]">
 
@@ -458,17 +459,102 @@ layout: default
 layout: default
 ---
 
-# Reinforcement from Human Feedback (RLHF, 2022)
+<div class="grid h-[85%] w-full grid-cols-2 gap-8 px-4 pt-2">
 
-<div class="flex flex-col items-center justify-center gap-2 pt-2">
+<div class="flex min-h-0 flex-col">
 
-<img src="/images/slides/instructgpt-rlhf.png" alt="InstructGPT RLHF Steps 2 and 3" class="max-h-[42vh] w-auto max-w-[95%] object-contain" />
+## Pre-training
 
-<div class="text-[10px] leading-snug opacity-85 text-center">
+<div class="flex flex-1 items-center justify-center gap-2 text-sm">
 
-[\[2203.02155\] Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)
+<div class="flex flex-col items-center gap-0.5">
+  <div class="i-carbon-book text-3xl opacity-80" />
+  <div class="text-sm font-semibold leading-tight text-center">Corpus</div>
+</div>
+
+<div class="i-carbon-arrow-right text-2xl opacity-60" />
+
+<div class="flex flex-col items-center gap-0.5">
+  <div class="i-carbon-machine-learning-model text-3xl opacity-80" />
+  <div class="text-sm font-semibold leading-tight text-center">Language Model</div>
+</div>
+
+<div class="i-carbon-arrow-right text-2xl opacity-60" />
+
+<div class="flex flex-col items-center gap-0.5">
+  <div class="text-sm font-semibold leading-tight text-center">Predict<br/>next word</div>
+</div>
+
+<div class="i-carbon-arrow-right text-2xl opacity-60" />
+
+<div class="flex flex-col items-center gap-0.5">
+  <div class="i-carbon-machine-learning-model text-3xl opacity-80" />
+  <div class="text-sm font-semibold leading-tight text-center">Pre-trained LM</div>
+</div>
 
 </div>
+
+</div>
+
+<div class="flex min-h-0 flex-col">
+
+## Post-training
+
+<div class="flex flex-1 flex-col items-center justify-center gap-6 text-sm">
+
+<div class="flex flex-col items-center gap-2">
+  <div class="text-xs font-semibold uppercase tracking-wide opacity-70">Supervised Fine-tuning (SFT)</div>
+  <div class="flex items-center gap-2">
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="i-carbon-book text-3xl opacity-80" />
+      <div class="text-sm font-semibold leading-tight text-center">Instruction–response<br/>Corpus</div>
+    </div>
+    <div class="i-carbon-arrow-right text-2xl opacity-60" />
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="i-carbon-machine-learning-model text-3xl opacity-80" />
+      <div class="text-sm font-semibold leading-tight text-center">Pre-trained LM</div>
+    </div>
+    <div class="i-carbon-arrow-right text-2xl opacity-60" />
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="text-sm font-semibold leading-tight text-center">Predict<br/>response</div>
+    </div>
+    <div class="i-carbon-arrow-right text-2xl opacity-60" />
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="i-carbon-machine-learning-model text-3xl opacity-80" />
+      <div class="text-sm font-semibold leading-tight text-center">SFT model</div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col items-center gap-2">
+  <div class="text-xs font-semibold uppercase tracking-wide opacity-70">Alignment with human feedback</div>
+  <div class="flex items-center gap-2">
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="i-carbon-machine-learning-model text-3xl opacity-80" />
+      <div class="text-sm font-semibold leading-tight text-center">SFT model</div>
+    </div>
+    <div class="i-carbon-arrow-right text-2xl opacity-60" />
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="i-carbon-user-favorite text-3xl opacity-80" />
+      <div class="text-xs leading-snug text-center opacity-85">human preferences</div>
+    </div>
+    <div class="i-carbon-arrow-right text-2xl opacity-60" />
+    <div class="flex flex-col items-center gap-0.5">
+      <div class="i-carbon-machine-learning-model text-3xl opacity-80" />
+      <div class="text-sm font-semibold leading-tight text-center">Post-trained model</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="absolute bottom-2 right-4 text-[10px] leading-snug opacity-85 text-right">
+
+More info on alignment tuning via [Reinforcement Learning from Human Feedback](https://arxiv.org/abs/2203.02155) (see appendix)
 
 </div>
 
@@ -476,13 +562,80 @@ layout: default
 layout: center
 ---
 
-# Notebook: Instruction-tuned models
+# Notebook: Post-trained models
+
+---
+layout: center
+class: text-4xl
+---
+
+# Large Language Models
+
+<div class="absolute left-0 right-0 top-[58%] px-8 text-2xl font-semibold text-center leading-snug">
+  <u>Typically</u> refers to models that generate useful responses to inputs.
+</div>
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# LLM Workflows
+
+::left::
+
+<div class="flex h-full items-center">
+
+<div class="text-lg leading-relaxed">
+  <span class="font-semibold">Anthropic:</span> Systems where LLMs and tools are orchestrated through predefined code paths.
+
+  Requires:
+  - "State"
+  - Tools
+</div>
+
+</div>
+
+::right::
+
+<div class="flex h-full items-center">
+
+<div class="text-sm leading-tight w-full">
+
+<div class="grid grid-cols-[auto_1fr_1fr_1fr] gap-x-3 gap-y-5 items-center">
+
+<div></div>
+<div class="font-semibold text-center opacity-80">Decide output<br/>of step</div>
+<div class="font-semibold text-center opacity-80">Decide which<br/>steps to take</div>
+<div class="font-semibold text-center opacity-80">Decide what steps<br/>are available</div>
+
+<div class="font-semibold text-base pr-2">Code</div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+
+<div class="font-semibold text-base pr-2">Workflow</div>
+<div class="flex justify-center"><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="absolute bottom-2 right-4 text-[10px] leading-snug opacity-85 text-right max-w-[55%]">
+
+Adapted from [Building effective agents](https://www.anthropic.com/research/building-effective-agents), Anthropic; table from [What is an AI agent?](https://www.langchain.com/blog/what-is-an-agent)
+
+</div>
 
 ---
 layout: center
 ---
 
-# Notebook: Memory
+# Notebook: State as conversation history
 
 ---
 layout: default
@@ -500,7 +653,7 @@ layout: default
 layout: default
 ---
 
-# ChatGPT memory
+# ChatGPT-style memory
 
 <div class="flex flex-col items-center justify-center gap-2 pt-2">
 
@@ -515,10 +668,69 @@ layout: default
 </div>
 
 ---
-layout: center
+layout: default
 ---
 
-# Notebook: Append-based memory
+# Tools
+
+<div class="flex h-[75%] w-full items-center justify-center gap-4 px-2 text-sm">
+
+<div class="flex flex-col items-center gap-1.5 shrink-0">
+  <div class="i-carbon-string-text text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Text</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">LLM</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0">
+  <div class="text-5xl font-semibold opacity-70 leading-none">?</div>
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# Tools
+
+<div class="flex h-[75%] w-full flex-col items-center justify-center gap-8 px-2 text-sm">
+
+<div class="flex items-center justify-center gap-4">
+
+<div class="flex flex-col items-center gap-1.5 shrink-0">
+  <div class="i-carbon-string-text text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Text</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">LLM</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0">
+  <div class="i-carbon-string-text text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Text</div>
+</div>
+
+</div>
+
+<div class="text-2xl font-semibold text-center">
+  So how does an LLM use tools?
+</div>
+
+</div>
 
 ---
 layout: center
@@ -577,65 +789,137 @@ layout: default
 
 # Healthbot Workflow
 
-<div class="flex h-[78%] w-full flex-col items-center justify-center gap-5 px-2 text-sm">
-
-<div class="flex w-full items-start justify-center gap-3">
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[9.5rem]">
-  <div class="i-carbon-user text-5xl opacity-80" />
+<div class="flex h-[78%] w-full items-center justify-center px-2 text-sm">
+<div class="flex items-start justify-center gap-2">
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[8.5rem]">
+  <div class="flex h-14 items-center justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
   <div class="text-base font-semibold text-center leading-tight">Patient</div>
   <div class="text-xs leading-snug text-center opacity-85">“I'm feeling not good today, I am coughing and sneezing”</div>
 </div>
-
-<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0 self-center" />
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[8rem]">
-  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+<div class="flex h-14 shrink-0 items-center"><div class="i-carbon-arrow-right text-3xl opacity-60" /></div>
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7rem]">
+  <div class="flex h-14 items-center justify-center"><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
   <div class="text-base font-semibold text-center leading-tight">Parse symptoms</div>
 </div>
-
-<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0 self-center" />
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[8rem]">
-  <div class="i-carbon-search text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Web query</div>
-  <div class="text-xs leading-snug text-center opacity-85">condition lookup</div>
+<div class="flex h-14 shrink-0 items-center"><div class="i-carbon-arrow-right text-3xl opacity-60" /></div>
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7rem]">
+  <div class="flex h-14 items-center justify-center"><div class="i-carbon-search text-5xl opacity-80" /></div>
+  <div class="text-base font-semibold text-center leading-tight">Web search</div>
+  <div class="text-xs leading-snug text-center opacity-85">tool call</div>
 </div>
-
-<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0 self-center" />
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[8rem]">
-  <div class="i-carbon-earth text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Fetch results</div>
+<div class="flex h-14 shrink-0 items-center"><div class="i-carbon-arrow-right text-3xl opacity-60" /></div>
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7rem]">
+  <div class="flex h-14 items-center justify-center"><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
+  <div class="text-base font-semibold text-center leading-tight">Diagnose</div>
 </div>
-
+<div class="flex h-14 shrink-0 items-center"><div class="i-carbon-arrow-right text-3xl opacity-60" /></div>
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="flex h-14 items-center justify-center"><div class="i-carbon-data-structured text-5xl opacity-80" /></div>
+  <div class="text-base font-semibold text-center leading-tight">Save record</div>
 </div>
-
-<div class="i-carbon-arrow-down text-3xl opacity-60" />
-
-<div class="flex w-full items-start justify-center gap-3">
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[9rem]">
-  <div class="i-carbon-document text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Fill template</div>
-  <div class="text-xs leading-snug text-center opacity-85">user input + search</div>
-</div>
-
-<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0 self-center" />
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[9rem]">
-  <div class="i-carbon-data-structured text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">JSON → jsonl</div>
-  <div class="text-xs leading-snug text-center opacity-85">persist the record</div>
-</div>
-
-<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0 self-center" />
-
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[8rem]">
-  <div class="i-carbon-chat text-5xl opacity-80" />
+<div class="flex h-14 shrink-0 items-center"><div class="i-carbon-arrow-right text-3xl opacity-60" /></div>
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[6.5rem]">
+  <div class="flex h-14 items-center justify-center"><div class="i-carbon-chat text-5xl opacity-80" /></div>
   <div class="text-base font-semibold text-center leading-tight">Respond</div>
 </div>
+</div>
+</div>
 
+---
+layout: center
+---
+
+# Notebook: Healthbot Workflow
+
+---
+layout: default
+---
+
+# Conclusion
+
+<div class="flex h-[78%] w-full flex-col items-center justify-center gap-5 px-3 text-sm">
+
+<div class="w-full rounded-lg border-2 px-4 pt-2 pb-3" style="border-color:#0f766e; background:rgba(15,118,110,0.06)">
+<div class="text-sm font-semibold tracking-wide pb-2" style="color:#0f766e">LLM</div>
+<div class="flex w-full items-center justify-center gap-3">
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-book text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Corpus</div>
+  <div class="text-xs leading-snug text-center opacity-85">trillions of tokens</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Pre-trained LLM</div>
+  <div class="text-xs leading-snug text-center opacity-85">next-token prediction</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[9rem]">
+  <div class="flex items-center gap-2">
+    <div class="i-carbon-book text-5xl opacity-80" />
+    <div class="i-carbon-user-favorite text-5xl opacity-80" />
+  </div>
+  <div class="text-base font-semibold text-center leading-tight">Post-training</div>
+  <div class="text-xs leading-snug text-center opacity-85">align with human preference</div>
+</div>
+
+<div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Post-trained LLM</div>
+  <div class="text-xs leading-snug text-center opacity-85">useful answers</div>
+</div>
+
+</div>
+</div>
+
+<div class="w-full rounded-lg border-2 px-4 pt-2 pb-3" style="border-color:#b45309; background:rgba(180,83,9,0.06)">
+<div class="text-sm font-semibold tracking-wide pb-2" style="color:#b45309">LLM workflow</div>
+<div class="flex w-full items-center justify-center gap-3">
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">LLM</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">+</div>
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-tool-kit text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Tools</div>
+  <div class="text-xs leading-snug text-center opacity-85"> external functions</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">+</div>
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-data-base text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Memory</div>
+  <div class="text-xs leading-snug text-center opacity-85">append + retrieve context</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">+</div>
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-list-numbered text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Steps</div>
+  <div class="text-xs leading-snug text-center opacity-85">fixed sequence</div>
+</div>
+
+<div class="text-2xl font-semibold opacity-70 shrink-0">=</div>
+
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
+  <div class="i-carbon-flow text-5xl opacity-80" />
+  <div class="text-base font-semibold text-center leading-tight">Workflow</div>
+</div>
+
+</div>
 </div>
 
 </div>
@@ -644,4 +928,23 @@ layout: default
 layout: center
 ---
 
-# Notebook: Healthbot Workflow
+# Appendix
+
+---
+layout: default
+routeAlias: rlhf
+---
+
+# Reinforcement Learning from Human Feedback (RLHF, 2022)
+
+<div class="flex flex-col items-center justify-center gap-2 pt-2">
+
+<img src="/images/slides/instructgpt-rlhf.png" alt="InstructGPT RLHF Steps 2 and 3" class="max-h-[42vh] w-auto max-w-[95%] object-contain" />
+
+<div class="text-[10px] leading-snug opacity-85 text-center">
+
+[\[2203.02155\] Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)
+
+</div>
+
+</div>

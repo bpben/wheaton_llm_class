@@ -8,3 +8,6 @@
 
 # SQLite database
 message_log.db
+
+# Healthbot notebook output
+records.jsonl

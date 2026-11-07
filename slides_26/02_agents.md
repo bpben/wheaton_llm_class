@@ -57,7 +57,11 @@ layout: default
 
 # LLMs as we know them
 
-<div class="flex h-[75%] w-full items-center justify-center gap-3 px-2 text-sm">
+<div class="flex h-[75%] w-full items-center justify-center px-3 text-sm">
+
+<div class="w-full rounded-lg border-2 px-4 pt-2 pb-3" style="border-color:#0f766e; background:rgba(15,118,110,0.06)">
+<div class="text-sm font-semibold tracking-wide pb-2" style="color:#0f766e">LLM</div>
+<div class="flex w-full items-center justify-center gap-3">
 
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
   <div class="i-carbon-book text-5xl opacity-80" />
@@ -75,9 +79,12 @@ layout: default
 
 <div class="i-carbon-arrow-right text-3xl opacity-60 shrink-0" />
 
-<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
-  <div class="i-carbon-user-favorite text-5xl opacity-80" />
-  <div class="text-base font-semibold text-center leading-tight">Instruction-tuning</div>
+<div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[9rem]">
+  <div class="flex items-center gap-2">
+    <div class="i-carbon-book text-5xl opacity-80" />
+    <div class="i-carbon-user-favorite text-5xl opacity-80" />
+  </div>
+  <div class="text-base font-semibold text-center leading-tight">Post-training</div>
   <div class="text-xs leading-snug text-center opacity-85">align with human preference</div>
 </div>
 
@@ -90,6 +97,9 @@ layout: default
 </div>
 
 </div>
+</div>
+
+</div>
 
 ---
 layout: default
@@ -97,7 +107,11 @@ layout: default
 
 # Workflow building blocks
 
-<div class="flex h-[75%] w-full items-center justify-center gap-3 px-2 text-sm">
+<div class="flex h-[75%] w-full items-center justify-center px-3 text-sm">
+
+<div class="w-full rounded-lg border-2 px-4 pt-2 pb-3" style="border-color:#b45309; background:rgba(180,83,9,0.06)">
+<div class="text-sm font-semibold tracking-wide pb-2" style="color:#b45309">LLM workflow</div>
+<div class="flex w-full items-center justify-center gap-3">
 
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
   <div class="i-carbon-machine-learning-model text-5xl opacity-80" />
@@ -133,6 +147,9 @@ layout: default
 <div class="flex flex-col items-center gap-1.5 shrink-0 max-w-[7.5rem]">
   <div class="i-carbon-flow text-5xl opacity-80" />
   <div class="text-base font-semibold text-center leading-tight">Workflow</div>
+</div>
+
+</div>
 </div>
 
 </div>
@@ -214,18 +231,18 @@ layoutClass: gap-4
 
 <div class="font-semibold text-base pr-2">Code</div>
 <div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
-<div class="flex justify-center items-center gap-1"><div class="i-carbon-arrow-right text-2xl opacity-40" /><div class="i-carbon-user text-5xl opacity-80" /></div>
-<div class="flex justify-center items-center gap-1"><div class="i-carbon-arrow-right text-2xl opacity-40" /><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
 
 <div class="font-semibold text-base pr-2">Workflow</div>
 <div class="flex justify-center"><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
-<div class="flex justify-center items-center gap-1"><div class="i-carbon-arrow-right text-2xl opacity-40" /><div class="i-carbon-user text-5xl opacity-80" /></div>
-<div class="flex justify-center items-center gap-1"><div class="i-carbon-arrow-right text-2xl opacity-40" /><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
 
 <div class="font-semibold text-base pr-2">Agent</div>
 <div class="flex justify-center"><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
-<div class="flex justify-center items-center gap-1"><div class="i-carbon-arrow-right text-2xl opacity-40" /><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
-<div class="flex justify-center items-center gap-1"><div class="i-carbon-arrow-right text-2xl opacity-40" /><div class="i-carbon-user text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-machine-learning-model text-5xl opacity-80" /></div>
+<div class="flex justify-center"><div class="i-carbon-user text-5xl opacity-80" /></div>
 
 </div>
 

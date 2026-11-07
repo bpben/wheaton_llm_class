@@ -1,16 +1,17 @@
 # LLM Section of COMP 255 at Wheaton College
 
-> **Work in progress:** only Class 01 and Class 02 notebook are available for now.
+> **Work in progress:** only Class 01 and Class 02 materials are available for now.
 
 ## Class 01: LLM Workflows
 
 - Instructor notebook: [`notebooks_instructor/01_workflows.ipynb`](notebooks_instructor/01_workflows.ipynb)
+- Student notebook: [`notebooks_student/01_workflows_student.ipynb`](notebooks_student/01_workflows_student.ipynb)
 - Slides: [`slides_26/01_workflows.md`](slides_26/01_workflows.md)
 
-## Class 02: ReAct Workflows
+## Class 02: Agents
 
-- Instructor notebook: [`notebooks_instructor/02_workflows.ipynb`](notebooks_instructor/02_workflows.ipynb)
-- Slides: TBA
+- Instructor notebook: [`notebooks_instructor/02_agents.ipynb`](notebooks_instructor/02_agents.ipynb)
+- Slides: [`slides_26/02_agents.md`](slides_26/02_agents.md)
 
 ## GitHub Codespaces
 

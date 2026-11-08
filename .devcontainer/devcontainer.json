@@ -1,20 +1,25 @@
 {
-    "name": "my-workspace",
-    "build": {
-      "dockerfile": "Dockerfile",
-      "context": ".."
-    },
-    "customizations": {
-      "vscode": {
-        "settings": {},
-        "extensions": ["ms-python.python", 
-        "charliermarsh.ruff", 
-      "donjayamanne.vscode-default-python-kernel"]
+  "name": "Wheaton LLM Class",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff",
+        "donjayamanne.vscode-default-python-kernel"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.pixi/envs/default/bin/python"
       }
-    },
-    "features": {
-    },
-    "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
-    "postCreateCommand": "sudo chown vscode .pixi && pixi install && curl -fsSL https://ollama.com/install.sh | sh",
-    "postStartCommand": "ollama serve"
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"
+  ],
+  "postCreateCommand": "sudo chown -R vscode:vscode .pixi && pixi install && bash .devcontainer/start-ollama.sh && ollama pull llama3.2:1b-text-q5_K_S && ollama pull llama3.2:1b",
+  "postAttachCommand": "bash .devcontainer/start-ollama.sh"
 }

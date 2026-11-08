@@ -1,35 +1,98 @@
-#  LLM Section of Comp255 at Wheaton College 
+# LLM Section of COMP 255 at Wheaton College
 
-## Slides
-[Class 1 slides](https://docs.google.com/presentation/d/1DyKqXHl7ICcoOJ94y44y__SGCu44nIDOAX24kTXMFCg)
+> **Work in progress:** only Class 01 and Class 02 materials are available for now.
 
-[Class 2 slides](https://docs.google.com/presentation/d/1ljlyjdxe9fpuWVPOEfGuXFdg3mxXn35aPWUC7-7oFsw)
+## Class 01: LLM Workflows
 
-[Class 3 slides](https://docs.google.com/presentation/d/1hSrKRqA1NzZMUa75t-E3T80gvuOGIfXeY-C7XOJ-FZU)
+- Instructor notebook: [`notebooks_instructor/01_workflows.ipynb`](notebooks_instructor/01_workflows.ipynb)
+- Student notebook: [`notebooks_student/01_workflows_student.ipynb`](notebooks_student/01_workflows_student.ipynb)
+- Slides: [`slides_26/01_workflows.md`](slides_26/01_workflows.md) · PDF: [`slides_26/01_workflows.pdf`](slides_26/01_workflows.pdf)
 
+## Class 02: Agents
 
+- Instructor notebook: [`notebooks_instructor/02_agents.ipynb`](notebooks_instructor/02_agents.ipynb)
+- Slides: [`slides_26/02_agents.md`](slides_26/02_agents.md)
 
-## Setup with Codespaces
-1) Select "use as template" in the top right of [the main page of the repo](https://github.com/bpben/wheaton_llm_class)
-2) Click on "Open in a Codespace, which will start a [Github Codespace](https://github.com/features/codespaces)
-NOTE: This will take some time on the first run, and it's not clear when the environment is finished building. Leave it for some time before following the directions under "installing models".
+## GitHub Codespaces
 
-## Setup locally
-1) Install pixi - Follow instructons [here](https://pixi.sh/latest/#installation)
-2) Install [Ollama](https://ollama.com/)
-3) If you are using VSCode, you should be able to open the notebooks and select the pixi kernel.  If not, you can use Jupyter Lab installed as part of the pixi environment.  In a terminal write `pixi shell`.  This will activate the pixi environment.  Then write `jupyter lab` and Jupyter Lab will open, allowing you to navigate to the notebooks and run the exercises.
-4) In a terminal, type `ollama serve`.  If you are on MacOS, you should see a little Llama icon in the top of your screen.
+Create a Codespace from this repository. The dev container installs the Python
+environment, Ollama, and the required models automatically. Initial setup may
+take several minutes while the models download.
 
-## Installing models
-The main model used is [qwen2.5:1.5b](https://ollama.com/library/qwen2.5:1.5b).  To pull this model run `ollama pull qwen2.5:1.5b`.
+### Codespaces troubleshooting
 
-To run the first few cells of the first notebook, you will need the [pretrained version of llama 3.2](https://ollama.com/library/llama3.2:1b-text-q5_K_S): `ollama pull llama3.2:1b-text-q5_K_S`.
+**Notebook won't attach to a kernel / "Select Kernel" is empty**
 
-The agent workflow will likely fail unless you use the [7B version of Qwen2.5](https://ollama.com/library/qwen2.5:7b): `ollama pull qwen2.5:7b`.  Note - this can be used in place of the 1.5b parameter model, but you will need to change the `sft_model` parameter in the notebooks.
+1. Click on the current kernel (top right of notebook)
+2. Select "Create Python Environment"
+3. Select "Enter interpreter path"
+4. Enter the full path to the Python interpreter: `/workspaces/wheaton_llm_class/.pixi/envs/default/bin/python`
 
-To run ALL notebooks:
+**`ConnectionError: Failed to connect to Ollama`**
+
+The Codespace should start Ollama on attach. If it still isn't up:
+
+```bash
+bash .devcontainer/start-ollama.sh
+ollama list
 ```
-ollama pull qwen2.5:1.5b
-ollama pull qwen2.5:7b
+
+If the models are missing, pull them:
+
+```bash
 ollama pull llama3.2:1b-text-q5_K_S
+ollama pull llama3.2:1b
 ```
+
+Then rerun the notebook cell.
+
+## Local setup
+
+1. Install [Pixi](https://pixi.sh/latest/).
+2. Install and start [Ollama](https://ollama.com/).
+3. Install the environment:
+
+   ```bash
+   pixi install
+   ```
+
+   (optional) Class 02's OpenAI Agent SDK section needs the `extras` environment:
+
+   ```bash
+   pixi install -e extras
+   ```
+
+4. For OpenRouter (used in Class 02), copy [`.env.example`](.env.example) to
+   `.env` and set `OPENROUTER_API_KEY`. Do not commit `.env`.
+
+5. Download the models:
+
+   ```bash
+   ollama pull llama3.2:1b-text-q5_K_S
+   ollama pull llama3.2:1b
+   ```
+
+6. Open the notebook with the Pixi kernel, or launch JupyterLab:
+
+   ```bash
+   pixi run jupyter lab
+   ```
+
+The web-search section of Class 01 also requires internet access.  It uses Firecrawl's search API, which requires no registration but is rate limited.
+
+## Run the slides locally
+
+Install [Node.js](https://nodejs.org/), then run:
+
+```bash
+cd slides_26
+npm install
+npm run class-01   # or class-02
+```
+
+Open the local URL printed in the terminal. Press the space bar or arrow keys
+to move between slides.
+
+### Note:
+`playwright-chromium` in `slides_26` is a **devDependency used only for exporting**
+slides to PNG/PDF — not required to present. 

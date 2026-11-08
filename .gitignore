@@ -1,7 +1,13 @@
 
+# secrets
+.env
+
 # pixi environments
 .pixi
 *.egg-info
 
 # SQLite database
 message_log.db
+
+# Healthbot notebook output
+records.jsonl

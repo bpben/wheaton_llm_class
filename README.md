@@ -6,7 +6,7 @@
 
 - Instructor notebook: [`notebooks_instructor/01_workflows.ipynb`](notebooks_instructor/01_workflows.ipynb)
 - Student notebook: [`notebooks_student/01_workflows_student.ipynb`](notebooks_student/01_workflows_student.ipynb)
-- Slides: [`slides_26/01_workflows.md`](slides_26/01_workflows.md)
+- Slides: [`slides_26/01_workflows.md`](slides_26/01_workflows.md) · PDF: [`slides_26/01_workflows.pdf`](slides_26/01_workflows.pdf)
 
 ## Class 02: Agents
 
@@ -87,8 +87,12 @@ Install [Node.js](https://nodejs.org/), then run:
 ```bash
 cd slides_26
 npm install
-npm run dev
+npm run class-01   # or class-02
 ```
 
 Open the local URL printed in the terminal. Press the space bar or arrow keys
 to move between slides.
+
+### Note:
+`playwright-chromium` in `slides_26` is a **devDependency used only for exporting**
+slides to PNG/PDF — not required to present. 

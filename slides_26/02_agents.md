@@ -578,20 +578,95 @@ layout: center
 # Notebook: Chain of Thought
 
 ---
-layout: default
+layout: two-cols-header
+layoutClass: gap-4
 ---
 
-# Planning - Reason+Action (ReAct, 2023)
+# Reasoning
 
-<div class="flex flex-col items-center justify-center gap-2 pt-2">
+::left::
 
-<img src="/images/slides/react-comparison.png" alt="Standard, reason-only, and act-only answers fail; ReAct reaches the correct answer" class="max-h-[50vh] w-auto max-w-full object-contain" />
+<div class="flex h-full flex-col items-center justify-center">
+
+<img src="/images/slides/react-reason-only.png" alt="Reason only: LM loops with reasoning traces, as in chain-of-thought" class="max-h-[42vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::right::
+
+<div class="flex h-full flex-col items-center justify-center">
+
+<img src="/images/slides/react-comparison-reason.png" alt="Standard and reason-only answers fail on the Apple Remote question" class="max-h-[42vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::bottom::
 
 <div class="text-[10px] leading-snug opacity-85 text-center">
 
 Yao et al. (2023). [ReAct: Synergizing Reasoning and Acting in Language Models](https://react-lm.github.io/).
 
 </div>
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# Acting
+
+::left::
+
+<div class="flex h-full flex-col items-center justify-center">
+
+<img src="/images/slides/react-act-only.png" alt="Act only: LM exchanges actions and observations with the environment" class="max-h-[42vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::right::
+
+<div class="flex h-full flex-col items-center justify-center">
+
+<img src="/images/slides/react-comparison-left.png" alt="Standard, reason-only, and act-only answers fail on the Apple Remote question" class="max-h-[42vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::bottom::
+
+<div class="text-[10px] leading-snug opacity-85 text-center">
+
+Yao et al. (2023). [ReAct: Synergizing Reasoning and Acting in Language Models](https://react-lm.github.io/).
+
+</div>
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# Reasoning + Acting = ReAct
+
+::left::
+
+<div class="flex h-full flex-col items-center justify-center">
+
+<img src="/images/slides/react-combined.png" alt="ReAct combines reasoning traces with actions and observations through the environment" class="max-h-[42vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::right::
+
+<div class="flex h-full flex-col items-center justify-center">
+
+<img src="/images/slides/react-comparison-right.png" alt="ReAct interleaves thoughts, actions, and observations to reach the correct answer" class="max-h-[42vh] w-auto max-w-full object-contain" />
+
+</div>
+
+::bottom::
+
+<div class="text-[10px] leading-snug opacity-85 text-center">
+
+Yao et al. (2023). [ReAct: Synergizing Reasoning and Acting in Language Models](https://react-lm.github.io/).
 
 </div>
 
@@ -600,6 +675,55 @@ layout: center
 ---
 
 # Notebook: ReAct
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# Reasoning in modern LLMs
+
+::left::
+
+```python
+from ollama import chat
+
+r = chat(
+    model="qwen3-vl:8b",
+    messages=[{
+        "role": "user",
+        "content": TENNIS_PROBLEM,
+    }],
+    think=True,
+)
+
+print(r.message.thinking)
+print(r.message.content)
+```
+
+::right::
+
+**thinking**
+
+```
+Okay, let me try to figure out how many
+tennis balls Roger has now. So, the problem
+says Roger has 5 tennis balls...
+```
+
+**content**
+
+```
+Roger starts with 5 tennis balls. He then
+buys 2 more cans, each containing 3 tennis
+balls. To find the total number of tennis
+balls he has now, we add the balls from the
+cans to his original count:
+
+5 + 2 × 3 = 5 + 6 = 11
+
+Thus, Roger has 11 tennis balls now.
+```
 
 ---
 layout: default
@@ -643,7 +767,7 @@ layout: default
   <div class="grid flex-1 grid-rows-3 items-center justify-items-center">
     <div class="flex flex-col items-center gap-1.5">
       <div class="i-carbon-search text-5xl opacity-80" />
-      <div class="text-base font-semibold text-center leading-tight">Search data</div>
+      <div class="text-base font-semibold text-center leading-tight">Search records</div>
     </div>
     <div class="flex flex-col items-center gap-1.5">
       <div class="i-carbon-notebook text-5xl opacity-80" />
@@ -901,7 +1025,7 @@ layoutClass: gap-4
 ## Key papers
 
 - [Original Transformer paper](https://arxiv.org/abs/1706.03762) (Vaswani et al., 2017)
-- [InstructGPT - precursor to GPT-3](https://arxiv.org/abs/2203.02155) (Ouyang et al., 2022)
+- [InstructGPT - precursor to ChatGPT](https://arxiv.org/abs/2203.02155) (Ouyang et al., 2022)
 - [Chain of thought prompting](https://arxiv.org/pdf/2205.11916) (Kojima et al., 2022)
 - [ReAct Framework](https://arxiv.org/abs/2210.03629) (Yao et al., 2023)
 - [MemGPT - memory-augmented LLMs](https://arxiv.org/abs/2310.08560) (Packer et al., 2023)

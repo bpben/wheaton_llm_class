@@ -62,23 +62,42 @@ Then rerun the notebook cell.
    pixi install -e extras
    ```
 
-4. For OpenRouter (used in Class 02), copy [`.env.example`](.env.example) to
-   `.env` and set `OPENROUTER_API_KEY`. Do not commit `.env`.
-
-5. Download the models:
+4. Download the models:
 
    ```bash
    ollama pull llama3.2:1b-text-q5_K_S
    ollama pull llama3.2:1b
    ```
 
-6. Open the notebook with the Pixi kernel, or launch JupyterLab:
+5. Open the notebook with the Pixi kernel, or launch JupyterLab:
 
    ```bash
    pixi run jupyter lab
    ```
 
 The web-search section of Class 01 also requires internet access.  It uses Firecrawl's search API, which requires no registration but is rate limited.
+
+## OpenRouter setup
+
+Successful runs of Class 02 agents requires using larger models.  You can call hosted models through [OpenRouter](https://openrouter.ai/).  Free models are available, but they may rate-limit tokens.
+
+1. Go to [openrouter.ai](https://openrouter.ai/) click "Get API Key", which will take you through creating an account.
+2. Once you're logged in, goto "Keys" and create a new key.  You can set it to $0 usage, you will still be able to use free models.
+3. In the repo root, copy the example env file and fill in your key:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Edit `.env` so it contains:
+
+   ```bash
+   OPENROUTER_API_KEY=sk-or-v1-...
+   ```
+
+4. Do **not** commit `.env` (it is gitignored) and do **not** paste the key into
+   a notebook cell.  Notebooks load it via `python-dotenv` (`load_dotenv()`).
+5. 02 notebook has a helper for setting up calls to OpenRouter.
 
 ## Run the slides locally
 

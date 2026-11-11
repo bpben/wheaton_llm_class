@@ -257,76 +257,6 @@ Adapted from [What is an AI agent?](https://www.langchain.com/blog/what-is-an-ag
 </div>
 
 ---
-layout: two-cols-header
-layoutClass: gap-4
----
-
-# Sloppy language: A model is not an agent
-
-::left::
-
-## OpenAI announcing GPT-6-Astra
-
-<div class="text-lg leading-relaxed">
-  “Astra is state-of-the-art on computer use, browsing, software engineering, cybersecurity, science, and professional work.”
-</div>
-
-<div class="text-[10px] leading-snug opacity-85 pt-3">
-
-[openai.com/index/gpt-6-astra](https://openai.com/index/gpt-6-astra/)
-
-</div>
-
-::right::
-
-## Anthropic on Claude Sonnet 4.5
-
-<div class="text-lg leading-relaxed">
-  “Claude Sonnet 4.5 is the best coding model in the world. It's the strongest model for building complex agents. It's the best model at using computers. And it shows substantial gains in reasoning and math.”
-</div>
-
-<div class="text-[10px] leading-snug opacity-85 pt-3">
-
-[anthropic.com/news/claude-sonnet-4-5](https://www.anthropic.com/news/claude-sonnet-4-5)
-
-</div>
-
----
-layout: two-cols-header
-layoutClass: gap-4
----
-
-# A workflow is not an agent
-
-::left::
-
-## Simon Willison
-
-<div class="text-lg leading-relaxed">
-  “An LLM agent runs tools in a loop to achieve a goal.”
-</div>
-
-<div class="text-[10px] leading-snug opacity-85 pt-3">
-
-[simonwillison.net/2025/Sep/18/agents](https://simonwillison.net/2025/Sep/18/agents/)
-
-</div>
-
-::right::
-
-## OpenAI
-
-<div class="text-lg leading-relaxed">
-  “Agents are systems that independently accomplish tasks on your behalf.”
-</div>
-
-<div class="text-[10px] leading-snug opacity-85 pt-3">
-
-[A practical guide to building AI agents](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)
-
-</div>
-
----
 layout: default
 ---
 
@@ -359,7 +289,7 @@ Russell, S., & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach*, 
 layout: default
 ---
 
-# Agent components
+# Agent components: LLM + Harness
 
 <div class="flex h-[75%] w-full items-stretch justify-center gap-4 px-6">
 
@@ -627,7 +557,7 @@ layoutClass: gap-4
 
 <div class="flex h-full flex-col items-center justify-center">
 
-<img src="/images/slides/react-comparison-left.png" alt="Standard, reason-only, and act-only answers fail on the Apple Remote question" class="max-h-[42vh] w-auto max-w-full object-contain" />
+<img src="/images/slides/react-comparison-act.png" alt="Act-only answer fails on the Apple Remote question" class="max-h-[42vh] w-auto max-w-full object-contain" />
 
 </div>
 
@@ -675,55 +605,6 @@ layout: center
 ---
 
 # Notebook: ReAct
-
----
-layout: two-cols-header
-layoutClass: gap-4
----
-
-# Reasoning in modern LLMs
-
-::left::
-
-```python
-from ollama import chat
-
-r = chat(
-    model="qwen3-vl:8b",
-    messages=[{
-        "role": "user",
-        "content": TENNIS_PROBLEM,
-    }],
-    think=True,
-)
-
-print(r.message.thinking)
-print(r.message.content)
-```
-
-::right::
-
-**thinking**
-
-```
-Okay, let me try to figure out how many
-tennis balls Roger has now. So, the problem
-says Roger has 5 tennis balls...
-```
-
-**content**
-
-```
-Roger starts with 5 tennis balls. He then
-buys 2 more cans, each containing 3 tennis
-balls. To find the total number of tennis
-balls he has now, we add the balls from the
-cans to his original count:
-
-5 + 2 × 3 = 5 + 6 = 11
-
-Thus, Roger has 11 tennis balls now.
-```
 
 ---
 layout: default
@@ -814,6 +695,12 @@ layout: default
 </div>
 
 </div>
+
+---
+layout: center
+---
+
+# Notebook: Healthbot Agent
 
 ---
 layout: default
@@ -985,7 +872,7 @@ layoutClass: gap-4
 | **Code** | validation, logic bugs, API errors |
 | **Workflow** | + bad step outputs, brittle handoffs |
 | **Agent** | + wrong tools, scope violations, runaway loops |
-| **Chat bot** | + ...many |
+| **Chat Agent** | + ...many |
 
 ::right::
 
@@ -1044,3 +931,58 @@ layoutClass: gap-4
 
 - [Taubench](https://taubench.com/) — AI agent evaluation
 - [RAGAS](https://docs.ragas.io/en/stable/) — RAG evaluation suite
+
+---
+layout: center
+---
+
+# Appendix
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+# Reasoning in modern LLMs
+
+::left::
+
+```python
+from ollama import chat
+
+r = chat(
+    model="qwen3-vl:8b",
+    messages=[{
+        "role": "user",
+        "content": TENNIS_PROBLEM,
+    }],
+    think=True,
+)
+
+print(r.message.thinking)
+print(r.message.content)
+```
+
+::right::
+
+**thinking**
+
+```
+Okay, let me try to figure out how many
+tennis balls Roger has now. So, the problem
+says Roger has 5 tennis balls...
+```
+
+**content**
+
+```
+Roger starts with 5 tennis balls. He then
+buys 2 more cans, each containing 3 tennis
+balls. To find the total number of tennis
+balls he has now, we add the balls from the
+cans to his original count:
+
+5 + 2 × 3 = 5 + 6 = 11
+
+Thus, Roger has 11 tennis balls now.
+```
